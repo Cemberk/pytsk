@@ -43,6 +43,8 @@ from setuptools import setup, Command, Extension
 from setuptools.command.build_ext import build_ext
 from setuptools.command.sdist import sdist
 
+sys.path.append('/content/pytsk/')
+
 try:
   from distutils.command.bdist_msi import bdist_msi
 except ImportError:
@@ -455,7 +457,7 @@ class ProjectBuilder(object):
 
 
 if __name__ == "__main__":
-  __version__ = open("version.txt").read().strip()
+  __version__ = open(sys.path[-1]+"version.txt").read().strip()
 
   setup_args = dict(
       name="pytsk3",
